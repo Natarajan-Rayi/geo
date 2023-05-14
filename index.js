@@ -9,7 +9,6 @@ const port = 5002;
 // const router = express.Router();
 const app = express();
 
-const indexPath = path.resolve(__dirname, "geo-src", "index.html");
 // // static resources should just be served as they are
 app.use(express.static(path.resolve(__dirname, "geo-src")));
 
@@ -19,10 +18,19 @@ app.get("/", async function (req, res, next) {
   return res.redirect("index.html");
 });
 app.get("/about-us", async function (req, res, next) {
-  return res.send("about.html");
+  const indexPath = path.resolve(__dirname, "geo-src", "about.html");
+  try {
+    fs.readFile(indexPath, "utf8", (err, htmlData) => {
+      if (err) {
+        console.error("Error during file reading", err);
+        return res.status(404).end();
+      }
+      return res.send(htmlData);
+    });
+  } catch {}
 });
 app.get("/contact-us", async function (req, res, next) {
-  return res.send("contact.html");
+  return res.redirect("contact.html");
 });
 app.get("/service", async function (req, res, next) {
   return res.redirect("service.html");
