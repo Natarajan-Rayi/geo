@@ -59,7 +59,29 @@ h6,
     transition: .5s;
     font-weight: 500;
 }
+.topbar-right::before{
+  background: #62a83d !important
+}
+.topbar-right{
+background: #62a83d !important
+}
+.text-primary{
+    color: #62a83d !important;
+}
+.navbar .navbar-brand{
+    background: none !important;
+}
+.navbar .navbar-brand::after{
+    background-color: #62a83d !important;
+}
 
+.btn-primary{
+    background-color: #62a83d !important;
+    border: none;
+}
+.bg-primary{
+    background-color: #62a83d !important;
+}
 .btn-primary,
 .btn-outline-primary:hover {
     color: #FFFFFF;
@@ -143,9 +165,16 @@ h6,
     outline: none;
 }
 
+.fw-semi-bold{
+    color: #62a83d !important
+}
+.text-white{
+    color: white !important
+}
+
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
-    color: var(--primary);
+    color: #62a83d
 }
 
 .navbar .dropdown-toggle::after {
@@ -229,7 +258,7 @@ h6,
 }
 
 .page-header {
-    background: linear-gradient(to right, rgba(2, 36, 91, 1) 0%, rgba(2, 36, 91, 0) 100%), url(../img/carousel-2.jpg) center center no-repeat;
+    background: linear-gradient(to right, rgba(2, 36, 91, 1) 0%, rgba(2, 36, 91, 0) 100%), url(../img/port-de-barcelona-night.jpg) center center no-repeat;
     background-size: cover;
 }
 

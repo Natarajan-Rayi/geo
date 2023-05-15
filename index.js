@@ -15,7 +15,16 @@ app.use(express.static(path.resolve(__dirname, "geo-src")));
 app.use(express.static(path.resolve(__dirname, "metaData")));
 
 app.get("/", async function (req, res, next) {
-  return res.redirect("index.html");
+  const indexPath = path.resolve(__dirname, "geo-src", "index.html");
+  try {
+    fs.readFile(indexPath, "utf8", (err, htmlData) => {
+      if (err) {
+        console.error("Error during file reading", err);
+        return res.status(404).end();
+      }
+      return res.send(htmlData);
+    });
+  } catch {}
 });
 app.get("/about-us", async function (req, res, next) {
   const indexPath = path.resolve(__dirname, "geo-src", "about.html");
@@ -30,13 +39,40 @@ app.get("/about-us", async function (req, res, next) {
   } catch {}
 });
 app.get("/contact-us", async function (req, res, next) {
-  return res.redirect("contact.html");
+  const indexPath = path.resolve(__dirname, "geo-src", "contact.html");
+  try {
+    fs.readFile(indexPath, "utf8", (err, htmlData) => {
+      if (err) {
+        console.error("Error during file reading", err);
+        return res.status(404).end();
+      }
+      return res.send(htmlData);
+    });
+  } catch {}
 });
 app.get("/service", async function (req, res, next) {
-  return res.redirect("service.html");
+  const indexPath = path.resolve(__dirname, "geo-src", "service.html");
+  try {
+    fs.readFile(indexPath, "utf8", (err, htmlData) => {
+      if (err) {
+        console.error("Error during file reading", err);
+        return res.status(404).end();
+      }
+      return res.send(htmlData);
+    });
+  } catch {}
 });
 app.get("/*", async function (req, res, next) {
-  return res.redirect("404.html");
+  const indexPath = path.resolve(__dirname, "geo-src", "404.html");
+  try {
+    fs.readFile(indexPath, "utf8", (err, htmlData) => {
+      if (err) {
+        console.error("Error during file reading", err);
+        return res.status(404).end();
+      }
+      return res.send(htmlData);
+    });
+  } catch {}
 });
 // app.get("/*", async function (req, res, next) {
 //   console.log("function running success", req.pathname);
